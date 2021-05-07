@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Product</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/manager/add_product}" th:object="${product}">
+    <label for="productName">Enter product name</label>
+    <input type="text" th:field="*{productName}" id="productName"/>
+    <div style="color: red" th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}"></div>
+
+    <br>
+
+    <label for="productPrice">Enter product price</label>
+    <input type="text" th:field="*{productPrice}" id="productPrice"/>
+    <div style="color: red" th:if="${#fields.hasErrors('productPrice')}" th:errors="*{productPrice}"></div>
+
+    <br>
+
+    <label for="quantityOfProduct">Enter quantity of product</label>
+    <input type="text" th:field="*{quantityOfProduct}" id="quantityOfProduct"/>
+    <div style="color: red" th:if="${#fields.hasErrors('quantityOfProduct')}" th:errors="*{quantityOfProduct}"></div>
+
+    <input name="button" type="submit" value="Create"/>
+</form>
+</body>
+</html>

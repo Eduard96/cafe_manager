@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Table</title>
+</head>
+<body>
+    <form th:method="POST" th:action="@{/manager/assign_table}" th:object="${assignForm}">
+
+        <label for="waiter_id">Enter waiter id</label>
+        <input type="text" th:field="*{waiter_id}" id="waiter_id"/>
+        <div style="color: red" th:if="${#fields.hasErrors('waiter_id')}" th:errors="${waiter_id}"></div>
+
+        <br>
+
+        <label for="table_id">Enter table id</label>
+        <input type="text" th:field="*{table_id}" id="table_id"/>
+        <div style="color: red" th:if="${#fields.hasErrors('table_id')}" th:errors="${table_id}"></div>
+
+        <br>
+
+        <input name="button" type="submit" value="Assign"/>
+    </form>
+</body>
+</html>
